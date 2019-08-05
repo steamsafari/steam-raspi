@@ -12,21 +12,21 @@ module.exports = {
   pages: {
     main: {
       entry: "src/main.js",
-      template: "public/main.html",
-      filename: "main.html",
+      template: "public/index.html",
+      filename: "index.html",
       title: "STEAM树莓派",
       chunks: ["chunk-vendors", "chunk-common", "main"]
     },
     camera: {
       entry: "src/camera.js",
-      template: "public/camera.html",
+      template: "public/index.html",
       filename: "camera.html",
       title: "STEAM树莓派_摄像头",
       chunks: ["chunk-vendors", "chunk-common", "camera"]
     },
     wedo2: {
       entry: "src/wedo2.js",
-      template: "public/wedo2.html",
+      template: "public/index.html",
       filename: "wedo2.html",
       title: "STEAM树莓派_Wedo 2.0",
       chunks: ["chunk-vendors", "chunk-common", "wedo2"]

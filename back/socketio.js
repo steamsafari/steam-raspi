@@ -1,31 +1,33 @@
-var socketio = require('socket.io')(process.env.WS_PORT, {
-    path: '/ws'
-});
-socketio.set('origins', '*:*'); // 解决跨域问题
+var socketio = require("socket.io")(process.env.WS_PORT, {
+  path: "/ws"
+})
+socketio.set("origins", "*:*") // 解决跨域问题
 
-const redis = require('socket.io-redis');
-socketio.adapter(redis({
-    host: '127.0.0.1',
+const redis = require("socket.io-redis")
+socketio.adapter(
+  redis({
+    host: "127.0.0.1",
     port: 6379,
-    key: 'ws'
-}));
+    key: "ws"
+  })
+)
 
-var mySocketio = {};
+var mySocketio = {}
 
-mySocketio.getSocketio = function () {
-    socketio.on('connection', function (socket) {
-        socket.emit('news', {
-            hello: 'world'
-        });
+mySocketio.getSocketio = function() {
+  socketio.on("connection", function(socket) {
+    socket.emit("news", {
+      hello: "world"
+    })
 
-        socket.on('my other event', function (data) {
-            console.log('my other event', data);
-        });
+    socket.on("my other event", function(data) {
+      console.log("my other event", data)
+    })
 
-        socket.on('disconnect', function () {
-            socketio.emit('user disconnected');
-        });
-    });
+    socket.on("disconnect", function() {
+      socketio.emit("user disconnected")
+    })
+  })
 }
 
-module.exports = mySocketio;
+module.exports = mySocketio

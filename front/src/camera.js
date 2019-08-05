@@ -1,8 +1,8 @@
-import Vue from 'vue'
-import Camera from './Camera.vue'
+import Vue from "vue"
+import Camera from "./Camera.vue"
 
 Vue.config.productionTip = false
 
 new Vue({
-    render: h => h(Camera),
-}).$mount('#camera')
+  render: h => h(Camera)
+}).$mount("#app")
